@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 30
+    buildToolsVersion '30.0.3'
+    defaultConfig {
+        applicationId 'local.z7x.adb'
+        minSdk 26
+        targetSdk 28
+        versionCode 1
+        versionName '1.0'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // Release secrets stay outside the repository. Without these variables,
+    // assembleRelease produces an unsigned APK for the developer to sign.
+    def signingEnv = ['Z7X_KEYSTORE', 'Z7X_STORE_PASSWORD', 'Z7X_KEY_ALIAS', 'Z7X_KEY_PASSWORD']
+    def canSign = signingEnv.every { System.getenv(it) }
+    signingConfigs {
+        if (canSign) {
+            release {
+                storeFile file(System.getenv('Z7X_KEYSTORE'))
+                storePassword System.getenv('Z7X_STORE_PASSWORD')
+                keyAlias System.getenv('Z7X_KEY_ALIAS')
+                keyPassword System.getenv('Z7X_KEY_PASSWORD')
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (canSign) signingConfig signingConfigs.release
+        }
+    }
+}

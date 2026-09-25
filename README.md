@@ -1,5 +1,12 @@
 # 极米 Z7X 高亮版开启 ADB 完整教程
 
+> [!IMPORTANT]
+> **只想开启 ADB？安装并运行 APK 即可，无需阅读后面的操作步骤。**
+>
+> 下载 [Z7X ADB 开启器 APK](https://github.com/code-ant/z7x-adb/releases/download/v1.0.0/Z7X-ADB-v1.0.0.apk)，在投影仪上安装后**打开运行一次**，应用会自动开启 ADB。让电脑和投影仪连接同一 Wi-Fi／局域网，再在电脑上执行 `adb connect 投影仪IP:5555` 即可连接（请替换为投影仪的实际 IP）。
+>
+> **不需要安装 Activity Launcher，也不需要进入 Factory Menu 或手动输入 Shell 命令。** 后续图文步骤仅供想了解实现原理、手动开启过程或排查问题的用户阅读。适用范围以文中已验证的固件为准。
+
 本项目记录在一台极米 Z7X 高亮版投影仪上，从 U 盘安装 Activity Launcher、进入联发科工程菜单、执行 Shell，到开启网络 ADB 的完整过程，并提供一个可独立执行开启操作的 Android APK。
 
 **实测结论：这台设备上，普通第三方 APK 可以设置所需属性并重新启动 adbd，不需要 root、系统签名或辅助功能授权。** 该结论仅适用于本次验证的固件环境，不能推广到所有极米设备。

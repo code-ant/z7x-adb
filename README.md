@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > **只想开启 ADB？安装并运行 APK 即可，无需阅读后面的操作步骤。**
 >
-> 下载 [Z7X ADB 开启器 APK](https://github.com/code-ant/z7x-adb/releases/download/v1.0.0/Z7X-ADB-v1.0.0.apk)，在投影仪上安装后**打开运行一次**，应用会自动开启 ADB。让电脑和投影仪连接同一 Wi-Fi／局域网，再在电脑上执行 `adb connect 投影仪IP:5555` 即可连接（请替换为投影仪的实际 IP）。
+> 下载 [Z7X ADB 开启器 APK](https://github.com/code-ant/z7x-adb/releases/download/v1.1.0/Z7X-ADB-v1.1.0.apk)，在投影仪上安装后**打开运行一次**，应用会自动开启 ADB。让电脑和投影仪连接同一 Wi-Fi／局域网，再在电脑上执行 `adb connect 投影仪IP:5555` 即可连接（请替换为投影仪的实际 IP）。
 >
 > **不需要安装 Activity Launcher，也不需要进入 Factory Menu 或手动输入 Shell 命令。** 后续图文步骤仅供想了解实现原理、手动开启过程或排查问题的用户阅读。适用范围以文中已验证的固件为准。
 
@@ -13,9 +13,22 @@
 
 ## 下载 APK
 
-从 [Release 页面](https://github.com/code-ant/z7x-adb/releases/latest)下载 `Z7X-ADB-v1.0.0.apk`，或使用 [APK 直接下载链接](https://github.com/code-ant/z7x-adb/releases/download/v1.0.0/Z7X-ADB-v1.0.0.apk)。将 APK 复制到 U 盘，在投影仪上安装并点一次“打开”，应用就会自动配置 ADB。首次安装但尚未启动时，不会保证自动执行。
+从 [Release 页面](https://github.com/code-ant/z7x-adb/releases/latest)下载 `Z7X-ADB-v1.1.0.apk`，或使用 [APK 直接下载链接](https://github.com/code-ant/z7x-adb/releases/download/v1.1.0/Z7X-ADB-v1.1.0.apk)。将 APK 复制到 U 盘，在投影仪上安装并点一次“打开”，应用就会自动配置 ADB。首次安装但尚未启动时，不会保证自动执行。
 
 如果你只想快速开启 ADB，可以先尝试该 APK；如果想了解或重现发现过程，请从下一节开始。APK 的开启逻辑不依赖预先存在的 ADB 连接。
+
+## TV 遥控器操作
+
+v1.1.0 已适配投影仪遥控器。打开应用后会自动执行 ADB 开启和检查；需要手动操作时，按上下左右方向键在两个按钮之间切换，选中按钮显示白色边框并放大，按 **OK** 执行对应操作。检查进行中焦点仍会保留，不会因按钮暂时禁用而丢失。
+
+- **重新开启并检查**：再次设置并验证 ADB。
+- **开机自动恢复**：按 OK 在开启和关闭之间切换，状态会保存。
+
+![遥控器选中重新开启按钮时的白框和放大效果](docs/images/tv-focus-run.png)
+
+![遥控器选中开机恢复按钮时的白框和放大效果](docs/images/tv-focus-boot.png)
+
+实机验证记录见 [v1.1.0 发布说明](docs/release-v1.1.0.md)。按键测试使用 ADB 注入与遥控器相同的 Android 方向键和 OK 键事件，并核对截图、焦点与操作结果。
 
 ## 一 设备与准备工作
 

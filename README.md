@@ -46,7 +46,7 @@
 
 | 版本 | 功能与变化 | 更新日志 |
 | --- | --- | --- |
-| **v1.2.0** | 更名为极米 ADB 开启器；显示实际 IP 的连接指引；简化为 adbd 状态；新增实验性框架重启和关闭 ADB／恢复 USB 模式；关闭后改为手动开启；添加 GitHub／Issues 入口与实验区域标识；拆分实验文档 | [v1.2.0](https://github.com/code-ant/z7x-adb/releases/tag/v1.2.0) |
+| **v1.2.0** | 更名为极米 ADB 开启器；显示实际 IP 的连接指引；简化为 adbd 状态；新增实验性框架重启和关闭 ADB／恢复 USB 模式，其中框架重启授权方案参考 [Lpaipai/xgimi-adb-guide](https://github.com/Lpaipai/xgimi-adb-guide) 实现；关闭后改为手动开启；添加 GitHub／Issues 入口与实验区域标识；拆分实验文档 | [v1.2.0](https://github.com/code-ant/z7x-adb/releases/tag/v1.2.0) |
 | **v1.1.0** | 增加 TV 遥控器方向键、白框放大焦点和 OK 操作；开机恢复按钮；执行过程中保留焦点；保留打开即自动开启 | [v1.1.0](https://github.com/code-ant/z7x-adb/releases/tag/v1.1.0) |
 | **v1.0.0** | 初始版本：自动设置网络 ADB 配置、启动服务、属性读回及本机端口检查、手动重试和开机恢复选项；提供 Android 源码 | [v1.0.0](https://github.com/code-ant/z7x-adb/releases/tag/v1.0.0) |
 
